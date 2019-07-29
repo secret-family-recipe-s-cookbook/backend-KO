@@ -1,6 +1,5 @@
 const bcrypt = require('bcryptjs');
 const { insert } = require('../database/models/users');
-
 module.exports = {
   register
 };
@@ -16,6 +15,11 @@ async function register(req, res) {
       username,
       password: hashedPassword
     });
+    
+    if (!errors.isEmpty()) {
+      
+    }
+
     return res.status(201).json({
       status: 'success',
       message: 'user created successfully',
