@@ -1,7 +1,6 @@
-const db = require('../dbConfig');
 
 exports.up = function(knex) {
-  return db.schema.createTable('users', table => {
+  return knex.schema.createTable('users', table => {
     table.increments();
     table.varchar('firstname', 128).notNullable();
     table.varchar('lastname', 128).notNullable();
@@ -14,6 +13,6 @@ exports.up = function(knex) {
   });
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function(knex) {
   return knex.schema.dropTableIfExists('users');
 };

@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const { insert } = require('../database/models/users');
+const { insert } = require('../models/users');
 module.exports = {
   register
 };
