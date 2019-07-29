@@ -1,0 +1,33 @@
+{
+  "name": "cookbook-backend-ko",
+  "version": "1.0.0",
+  "description": "A place to store all  secret family recipes",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "test": "cross-env DB_ENV=testing jest --watch --verbose"
+  },
+  "jest": {
+    "testEnvirnoment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/secret-family-recipe-s-cookbook/cookbook-backend-KO.git"
+  },
+  "author": "kelechi ogbonna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/secret-family-recipe-s-cookbook/cookbook-backend-KO/issues"
+  },
+  "homepage": "https://github.com/secret-family-recipe-s-cookbook/cookbook-backend-KO#readme",
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
+    "jest": "^24.8.0",
+    "knex": "^0.19.1",
+    "pg": "^7.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
