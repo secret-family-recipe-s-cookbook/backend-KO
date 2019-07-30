@@ -27,6 +27,13 @@ async function register(req, res) {
         .status(400)
         .json({ error: 'email has already been registered' });
     }
+    if (error.code === '23505' && error.detail.includes('username')) {
+      return res
+        .status(400)
+        .json({
+          error: 'username is not available, please use a different username'
+        });
+    }
     res.status(500).json({
       error: 'could not create user'
     });
@@ -35,7 +42,6 @@ async function register(req, res) {
 
 async function login(req, res) {
   try {
-    
     let { usernameoremail, password } = req.body;
     const user = await findUsernameoremail(usernameoremail).first();
     if (user && bcrypt.compareSync(password, user.password)) {
@@ -45,7 +51,9 @@ async function login(req, res) {
         token
       });
     } else {
-      res.status(401).json({ message: 'Invalid details' });
+      res
+        .status(400)
+        .json({ message: 'Invalid details, please input a username or email' });
     }
   } catch (error) {
     res.status(500).json({ error: error.message });
