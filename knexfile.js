@@ -1,7 +1,6 @@
 // Update with your config settings.
 
 module.exports = {
-
   development: {
     client: 'pg',
     connection: 'postgres://localhost/cookbook',
@@ -11,10 +10,10 @@ module.exports = {
     },
     seeds: {
       directory: './database/seeds/dev'
-    },
+    }
   },
   testing: {
-    client: 'pg', 
+    client: 'pg',
     connection: 'postgres://localhost/cookbook_test',
     useNullAsDefault: true,
     migrations: {
@@ -22,7 +21,7 @@ module.exports = {
     },
     seeds: {
       directory: './database/seeds/test'
-    },
+    }
   },
 
   production: {
@@ -34,7 +33,6 @@ module.exports = {
     },
     seeds: {
       directory: './database/seeds/production'
-    },
+    }
   }
-
 };

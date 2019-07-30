@@ -1,79 +1,114 @@
-# Secret Family Recipes Cookbook - API
+# Secret Family Recipes Cookbook
 
-## Auth Endpoint
+### PITCH
 
-####Request
-
-_Post_ /auth/register
-
-_Request_
+Anyone can go out and buy a cookbook these days, but I want a place to store all my secret family recipes, handed down from generation to generation.
 
 ```
-{
-    firstName
-    lastName
-    password
-    confirmPassword
-}
+API request url : https://lambda-cook-book.herokuapp.com/ 
 ```
 
-_Response_
+### API Specifications. Request And Response Examples
+
+#### Auth User Registration
+
+_Post_ api/auth/register
+_Request_ body
 
 ```
-{    
-    status: 201
-    message: "your account has been created successfully"
-    user: {
-        firstName
-        lastName
+    {
+        "firstname": "jacksin",
+        "lastname": "ogbonna",
+        "username": "laboo",
+        "email": "lackson@yahoo.com",
+        "password": "12345",
+        "confirmPassword": "12345"
     }
-}
-
-
-
 ```
 
-_Post_ /auth/login
-
-_Request_
-```
-{
-    username/email
-    password
-}
-```
-_Response_
+_Response_ body
+This response is sent if request is successful
 
 ```
-{
-    status: 200
-    message: "login successfull"
-    user: {
-        firstName
-        lastName
+    {
+        "message": "user created successfully",
+        "user": {
+            "id": 6,
+            "firstname": "jacksin",
+            "lastname": "ogbonna",
+            "username": "laboo",
+            "email": "lackson@yahoo.com"
+        }
     }
-    token
-}
 ```
 
-*Get* api/recipes
- user has to be logged in with a valid token to access this endpoint. 
+If user data input is not complete or does not pass the validations, an array of error messages is returned.
+username and email has to be unique.
+
+_Request_ body
 
 ```
-*Request*
- request is made to get /api/recipes
+    {
+        "firstname": "",
+        "lastname": "",
+        "username": "",
+        "email": "",
+        "password": "5",
+        "confirmPassword": ""
+    }
+```
 
- *response*
- ``` An array containg all recipes in the database ```
-
- *Put* api/recipes/:id
- user has to be logged in with a valid token to access this endpoint. 
+_Response_ body
 
 ```
-*Request*
- request is made to post /api/recipes/:id
+    {
+        "status": 400,
+        "error": [
+            "firstname must contain only alphabets",
+            "firstname must have atleast 2 characters",
+            "firstname cannot contain whitespaces",
+            "lastname must contain only alphabets",
+            "lastname must have atleast 2 characters",
+            "lastname cannot contain whitespaces",
+            "lastname must have atleast 2 characters",
+            "lastname cannot contain whitespaces",
+            "Please input a valid email address",
+            "password must have atleast 5 characters",
+            "password cannot contain whitespaces",
+            "Password confirmation does not match password"
+            ]
+    }
+```
 
- *response*
- ``` An array containg all recipes in the database ```
+#### Auth User Login
 
- 
+_Post_ api/auth/login
+
+The usernameoremail object key can take either the username or email as an input.
+
+_Request_ body
+
+```
+    {
+        "usernameoremail": "laboo",
+        "password": "12345"
+    }
+```
+
+_Response_ body
+This response is sent if request is successful
+
+```
+    {
+        "message": "Welcome laboo",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJsYWJvbyIsImVtYWlsIjoibGFja3NvbkB5YWhvby5jb20iLCJpYXQiOjE1NjQ0ODQzNjMsImV4cCI6MTU2NDU3MDc2M30.gVRACnwYjHAL_ke3gBoIXkzjAem2zNIICPNaAJNsWWI"
+    }
+```
+
+If the request is not successful a _400_ status and error message is returned
+
+```
+    {
+        "message": "Invalid details, please input a username or email"
+    }
+```
