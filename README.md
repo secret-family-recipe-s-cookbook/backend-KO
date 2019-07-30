@@ -5,7 +5,7 @@
 Anyone can go out and buy a cookbook these days, but I want a place to store all my secret family recipes, handed down from generation to generation.
 
 ```
-API request url :
+API request url : https://lambda-cook-book.herokuapp.com/ 
 ```
 
 ### API Specifications. Request And Response Examples
