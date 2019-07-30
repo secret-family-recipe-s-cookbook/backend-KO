@@ -9,4 +9,8 @@ server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use('/api/auth', authRouter);
 
+server.get('/', (req, res) => {
+  res.status(200).send('Welcome to Family Recipe CookBook');
+});
+
 module.exports = server;
