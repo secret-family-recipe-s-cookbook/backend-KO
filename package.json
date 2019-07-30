@@ -28,14 +28,14 @@
     "express": "^4.17.1",
     "express-validator": "^6.1.1",
     "helmet": "^3.20.0",
-    "jest": "^24.8.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.19.1",
-    "pg": "^7.12.0",
-    "supertest": "^4.0.2"
+    "pg": "^7.12.0"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "jest": "^24.8.0",
+    "supertest": "^4.0.2"
   }
 }
