@@ -10,6 +10,9 @@
   "jest": {
     "testEnvirnoment": "node"
   },
+  "engines": {
+    "node": "10.15.3"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/secret-family-recipe-s-cookbook/cookbook-backend-KO.git"
