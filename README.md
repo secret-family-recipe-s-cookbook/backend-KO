@@ -4,15 +4,14 @@
 
 Anyone can go out and buy a cookbook these days, but I want a place to store all my secret family recipes, handed down from generation to generation.
 
-```
 API request url : https://lambda-cook-book.herokuapp.com/ 
-```
 
 ### API Specifications. Request And Response Examples
 
 #### Auth User Registration
 
 _Post_ api/auth/register
+
 _Request_ body
 
 ```
@@ -27,6 +26,7 @@ _Request_ body
 ```
 
 _Response_ body
+
 This response is sent if request is successful
 
 ```
@@ -96,6 +96,7 @@ _Request_ body
 ```
 
 _Response_ body
+
 This response is sent if request is successful
 
 ```
