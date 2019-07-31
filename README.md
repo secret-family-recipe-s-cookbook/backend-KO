@@ -246,3 +246,10 @@ This response is sent if request is successful
 ```
 
 It returns a 404 if the recipe does not exist.
+
+It returns a *403* if the user trying to delete the route did not create the route
+```
+
+{ error: 'You cannot delete this recipe' }
+
+```
