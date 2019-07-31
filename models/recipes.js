@@ -24,5 +24,5 @@ function getById(id) {
 }
 
 function remove(id) {
-  return db('recipes').delete({ id });
+  return db('recipes').delete().where({id});
 }
