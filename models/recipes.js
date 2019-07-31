@@ -4,7 +4,8 @@ module.exports = {
   insert,
   get,
   getById,
-  remove
+  remove,
+  update
 };
 
 function insert(recipes) {
@@ -24,5 +25,13 @@ function getById(id) {
 }
 
 function remove(id) {
-  return db('recipes').delete().where({id});
+  return db('recipes')
+    .delete()
+    .where({ id });
+}
+
+function update(recipe, id) {
+  return db('recipes')
+    .update(recipe)
+    .where({ id });
 }
