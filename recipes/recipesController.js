@@ -1,9 +1,10 @@
-const { insert, get, getById } = require('../models/recipes');
+const { insert, get, getById, remove } = require('../models/recipes');
 
 module.exports = {
   addRecipes,
   getRecipes,
-  getRecipesbyId
+  getRecipesbyId,
+  deleteRecipe
 };
 
 async function addRecipes(req, res) {
@@ -36,10 +37,27 @@ async function getRecipes(req, res) {
 async function getRecipesbyId(req, res) {
   try {
     const recipe = await getById(req.params.id);
-    if (recipe.length === 0)
-      return res.status(404).json('could not find this recipe');
+    if (!recipe) return res.status(404).json('could not find this recipe');
     return res.status(200).json({ data: recipe });
   } catch (error) {
+    res.status(500).json({
+      error: 'could not get recipes  please try again later'
+    });
+  }
+}
+
+async function deleteRecipe(req, res) {
+  try {
+    let recipe = await getById(req.params.id);
+    if (!recipe) return res.status(404).json('could not find this recipe');
+    if (req.decode.id !== recipe.user_id) {
+      res.status(403).json({ error: 'You cannot delete this recipe' });
+    }
+    recipe = await remove(req.params.id);
+    return res.status(200).json({ data: recipe });
+  } catch (error) {
+    console.log(error.message);
+
     res.status(500).json({
       error: 'could not get recipes  please try again later'
     });

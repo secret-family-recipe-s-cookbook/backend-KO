@@ -4,7 +4,7 @@
 
 Anyone can go out and buy a cookbook these days, but I want a place to store all my secret family recipes, handed down from generation to generation.
 
-API request url : https://lambda-cook-book.herokuapp.com/ 
+API request url : https://lambda-cook-book.herokuapp.com/
 
 ### API Specifications. Request And Response Examples
 
@@ -164,7 +164,6 @@ This response is sent if request is successful
 
 If the request is not successful a _400_ status and error message is returned
 
-
 #### Get all Recipes
 
 _GET_ api/recipes
@@ -197,4 +196,51 @@ This response is sent if request is successful
 
 It returns a 404 if no recipe has been created
 
+#### Get a Recipes
 
+_GET_ api/recipes/:id
+
+Returns the recipe with the given id. user has to be logged in to access this route
+
+_Response_ body
+
+This response is sent if request is successful
+
+```
+   {
+    "data":
+        {
+            "id": 1,
+            "recipe_image": null,
+            "tittle": "cream carroy salado",
+            "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
+            "ingredients": "lettuces, cream, flour,sugar, carrot",
+            "directions": "grate lettuce and carrot, pour cream in a pot and steam",
+            "Notes": null,
+            "source": null,
+            "bio": null,
+            "source_image": null,
+            "user_id": 1
+        }
+}
+```
+
+It returns a 404 if the recipe does not exist.
+
+#### Delete a Recipe
+
+_DELETE_ api/recipes/:id
+
+Deletes the recipe with the given id. user has to be logged in to access this route. the user has to be the one who created the recipe
+
+_Response_ body
+
+This response is sent if request is successful
+
+```
+   {
+    "data": 1
+   }
+```
+
+It returns a 404 if the recipe does not exist.
