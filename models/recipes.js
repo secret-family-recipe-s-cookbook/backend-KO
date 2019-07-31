@@ -1,7 +1,10 @@
 const db = require('../database/dbConfig');
 
 module.exports = {
-  insert, get, getById
+  insert,
+  get,
+  getById,
+  remove
 };
 
 function insert(recipes) {
@@ -15,5 +18,11 @@ function get() {
 }
 
 function getById(id) {
-  return db('recipes').where({id}).first();
+  return db('recipes')
+    .where({ id })
+    .first();
+}
+
+function remove(id) {
+  return db('recipes').delete({ id });
 }
