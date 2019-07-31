@@ -126,7 +126,7 @@ _Request_ body
         {
 
             "recipe_image": " ",
-            "tittle": "cream carroy salado",
+            "title": "cream carroy salado",
             "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
             "ingredients": "lettuces, cream, flour,sugar, carrot",
             "directions": "grate lettuce and carrot, pour cream in a pot and steam",
@@ -148,7 +148,7 @@ This response is sent if request is successful
         {
             "id": 2,
             "recipe_image": null,
-            "tittle": "cream carroy salado",
+            "title": "cream carroy salado",
             "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
             "ingredients": "lettuces, cream, flour,sugar, carrot",
             "directions": "grate lettuce and carrot, pour cream in a pot and steam",
@@ -180,7 +180,7 @@ This response is sent if request is successful
         {
             "id": 1,
             "recipe_image": null,
-            "tittle": "cream carroy salado",
+            "title": "cream carroy salado",
             "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
             "ingredients": "lettuces, cream, flour,sugar, carrot",
             "directions": "grate lettuce and carrot, pour cream in a pot and steam",
@@ -212,7 +212,7 @@ This response is sent if request is successful
         {
             "id": 1,
             "recipe_image": null,
-            "tittle": "cream carroy salado",
+            "title": "cream carroy salado",
             "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
             "ingredients": "lettuces, cream, flour,sugar, carrot",
             "directions": "grate lettuce and carrot, pour cream in a pot and steam",
@@ -233,14 +233,23 @@ _DELETE_ api/recipes/:id
 
 Deletes the recipe with the given id. user has to be logged in to access this route. the user has to be the one who created the recipe
 
+
 _Response_ body
 
 This response is sent if request is successful
 
 ```
    {
+    message: 'recipe has been deleted',
     "data": 1
    }
 ```
 
 It returns a 404 if the recipe does not exist.
+
+It returns a *403* if the user trying to delete the route did not create the route
+```
+
+{ error: 'You cannot delete this recipe' }
+
+```
