@@ -5,7 +5,8 @@ const {
   addRecipes,
   getRecipes,
   getRecipesbyId,
-  deleteRecipe
+  deleteRecipe,
+  updateRecipe
 } = require('./recipesController');
 const validateRecipes = require('../middleware/validateRecipes');
 
@@ -13,5 +14,6 @@ router.post('/', authentication, validateRecipes, addRecipes);
 router.get('/', authentication, getRecipes);
 router.get('/:id', authentication, getRecipesbyId);
 router.delete('/:id', authentication, deleteRecipe);
+router.put('/:id', authentication, validateRecipes, updateRecipe);
 
 module.exports = router;
