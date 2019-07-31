@@ -12,9 +12,7 @@ async function addRecipes(req, res) {
       message: 'recipe created successfully',
       recipe
     });
-  } catch (error) {
-    console.log(error.message);
-    
+  } catch (error) {    
     res.status(500).json({
       error: 'could not add recipe to the database, please try again later'
     });
