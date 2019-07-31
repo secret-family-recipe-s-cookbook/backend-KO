@@ -240,6 +240,7 @@ This response is sent if request is successful
 
 ```
    {
+    message: 'recipe has been deleted',
     "data": 1
    }
 ```
