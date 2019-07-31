@@ -164,3 +164,37 @@ This response is sent if request is successful
 
 If the request is not successful a _400_ status and error message is returned
 
+
+#### Get all Recipes
+
+_GET_ api/recipes
+
+Returns all the recipes that have been created. user has to be logged in to access this route
+
+_Response_ body
+
+This response is sent if request is successful
+
+```
+   {
+    "data": [
+        {
+            "id": 1,
+            "recipe_image": null,
+            "tittle": "cream carroy salado",
+            "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
+            "ingredients": "lettuces, cream, flour,sugar, carrot",
+            "directions": "grate lettuce and carrot, pour cream in a pot and steam",
+            "Notes": null,
+            "source": null,
+            "bio": null,
+            "source_image": null,
+            "user_id": 1
+        }
+    ]
+}
+```
+
+It returns a 404 if no recipe has been created
+
+

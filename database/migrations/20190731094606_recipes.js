@@ -2,7 +2,7 @@ exports.up = function(knex) {
   return knex.schema.createTable('recipes', table => {
     table.increments();
     table.text('recipe_image').nullable();
-    table.text('title').notNullable();
+    table.text('tittle').notNullable();
     table.text('description').notNullable();
     table.text('ingredients').notNullable();
     table.text('directions').notNullable();
