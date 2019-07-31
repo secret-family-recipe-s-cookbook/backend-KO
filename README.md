@@ -233,6 +233,7 @@ _DELETE_ api/recipes/:id
 
 Deletes the recipe with the given id. user has to be logged in to access this route. the user has to be the one who created the recipe
 
+
 _Response_ body
 
 This response is sent if request is successful

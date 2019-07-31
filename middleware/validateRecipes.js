@@ -1,7 +1,7 @@
 const { check, validationResult } = require('express-validator');
 
 const validateRecipes = [
-  check('tittle')
+  check('title')
     .isLength({ min: 1 })
     .withMessage('Please input a title')
     .trim(),
