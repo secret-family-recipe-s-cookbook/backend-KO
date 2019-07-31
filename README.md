@@ -126,7 +126,7 @@ _Request_ body
         {
 
             "recipe_image": " ",
-            "tittle": "cream carroy salado",
+            "title": "cream carroy salado",
             "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
             "ingredients": "lettuces, cream, flour,sugar, carrot",
             "directions": "grate lettuce and carrot, pour cream in a pot and steam",
@@ -148,7 +148,7 @@ This response is sent if request is successful
         {
             "id": 2,
             "recipe_image": null,
-            "tittle": "cream carroy salado",
+            "title": "cream carroy salado",
             "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
             "ingredients": "lettuces, cream, flour,sugar, carrot",
             "directions": "grate lettuce and carrot, pour cream in a pot and steam",
@@ -180,7 +180,7 @@ This response is sent if request is successful
         {
             "id": 1,
             "recipe_image": null,
-            "tittle": "cream carroy salado",
+            "title": "cream carroy salado",
             "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
             "ingredients": "lettuces, cream, flour,sugar, carrot",
             "directions": "grate lettuce and carrot, pour cream in a pot and steam",
