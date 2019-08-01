@@ -14,7 +14,7 @@ module.exports = {
   },
   testing: {
     client: 'pg',
-    connection: 'postgres://localhost/cookbook_test',
+    connection: process.env.DATABASE_TEST,
     useNullAsDefault: true,
     migrations: {
       directory: './database/migrations'
