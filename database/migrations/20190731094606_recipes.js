@@ -3,6 +3,11 @@ exports.up = function(knex) {
     table.increments();
     table.text('recipe_image').nullable();
     table.text('title').notNullable();
+    table.text('categories').nullable();
+    table.text('prepTime').nullable();
+    table.text('cookTime').nullable();
+    table.text('calories').nullable();
+    table.text('servings').nullable();
     table.text('description').notNullable();
     table.text('ingredients').notNullable();
     table.text('directions').notNullable();
