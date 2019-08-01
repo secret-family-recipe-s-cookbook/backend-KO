@@ -9,7 +9,7 @@
     "migrate-test": "npx knex migrate:latest --env=testing",
     "seed-test": "npx knex seed:run --env=testing",
     "pretest": "npm run rollback-test && npm run migrate-test && npm run seed-test",
-    "test": "cross-env DB_ENV=testing jest --watch --verbose"
+    "test": "cross-env DB_ENV=testing jest --verbose --forceExit"
   },
   "jest": {
     "testEnvirnoment": "node"
