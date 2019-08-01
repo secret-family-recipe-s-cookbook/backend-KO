@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
+    "rollback-test": "npx knex migrate:rollback --env=testing",
+    "migrate-test": "npx knex migrate:latest --env=testing",
+    "seed-test": "npx knex seed:run --env=testing",
+    "pretest": "npm run rollback-test && npm run migrate-test && npm run seed-test",
     "test": "cross-env DB_ENV=testing jest --watch --verbose"
   },
   "jest": {
@@ -34,6 +38,7 @@
     "helmet": "^3.20.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.19.1",
+    "knex-cleaner": "^1.2.1",
     "pg": "^7.12.0"
   },
   "devDependencies": {

@@ -216,7 +216,7 @@ This response is sent if request is successful
             "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
             "ingredients": "lettuces, cream, flour,sugar, carrot",
             "directions": "grate lettuce and carrot, pour cream in a pot and steam",
-            "Notes": null,
+            "notes": null,
             "source": null,
             "bio": null,
             "source_image": null,
@@ -233,7 +233,6 @@ _DELETE_ api/recipes/:id
 
 Deletes the recipe with the given id. user has to be logged in to access this route. the user has to be the one who created the recipe
 
-
 _Response_ body
 
 This response is sent if request is successful
@@ -247,7 +246,8 @@ This response is sent if request is successful
 
 It returns a 404 if the recipe does not exist.
 
-It returns a *403* if the user trying to delete the route did not create the route
+It returns a _403_ if the user trying to delete the route did not create the route
+
 ```
 
 { error: 'You cannot delete this recipe' }
