@@ -250,6 +250,8 @@ It returns a _403_ if the user trying to delete the route did not create the rou
 
 ```
 
-{ error: 'You cannot delete this recipe' }
+{ error:
+    'You cannot delete this recipe'
+ }
 
 ```
