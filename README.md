@@ -216,7 +216,7 @@ This response is sent if request is successful
             "description": "cream pie salad is a pie made with salad and garnished with cream. hmm so delicicious",
             "ingredients": "lettuces, cream, flour,sugar, carrot",
             "directions": "grate lettuce and carrot, pour cream in a pot and steam",
-            "Notes": null,
+            "notes": null,
             "source": null,
             "bio": null,
             "source_image": null,

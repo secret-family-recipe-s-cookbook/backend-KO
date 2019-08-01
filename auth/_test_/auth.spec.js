@@ -1,9 +1,10 @@
 const server = require('../../server');
 const db = require('../../database/dbConfig');
 const request = require('supertest');
+let token;
 
 beforeAll(async () => {
-  await db('users').truncate();
+  await db.raw('truncate users cascade');
 });
 
 describe('register', () => {
@@ -17,7 +18,7 @@ describe('register', () => {
       confirmPassword: '1234'
     };
     return request(server)
-      .post('/auth/register')
+      .post('/api/auth/register')
       .send(user)
       .expect(201)
       .expect('Content-Type', /json/)
@@ -38,7 +39,7 @@ describe('register', () => {
       email: 'kellsy@example.com'
     };
     return request(server)
-      .post('/auth/register')
+      .post('/api/auth/register')
       .send(user)
       .expect(400)
       .expect('Content-Type', /json/)
@@ -55,11 +56,12 @@ describe('login', () => {
       password: '1234'
     };
     return request(server)
-      .post('/auth/login')
+      .post('/api/auth/login')
       .send(user)
       .expect(200)
       .expect('Content-Type', /json/)
       .then(res => {
+        token = res.body.token;
         expect(res.status).toEqual(200);
         expect(res.body).toHaveProperty('message');
         expect(res.body).toHaveProperty('token');
@@ -72,12 +74,11 @@ describe('login', () => {
       password: ''
     };
     return request(server)
-      .post('/auth/login')
+      .post('/api/auth/login')
       .send(user)
       .expect(400)
       .expect('Content-Type', /json/)
       .then(res => {
-        console.log(res.body);
         expect(res.status).toEqual(400);
         expect(res.body).toHaveProperty('message');
         expect(res.body.message).toBe(
@@ -86,3 +87,4 @@ describe('login', () => {
       });
   });
 });
+module.export = token;

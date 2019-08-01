@@ -10,7 +10,7 @@ module.exports = {
 
 async function addRecipes(req, res) {
   try {
-    const recipe = await insert({ ...req.body, user_id: req.decode.id });
+    const [recipe] = await insert({ ...req.body, user_id: req.decode.id });
     return res.status(201).json({
       message: 'recipe created successfully',
       recipe
@@ -27,9 +27,7 @@ async function getRecipes(req, res) {
     const recipes = await get();
     if (recipes.length === 0)
       return res.status(404).json('No recipe has been created yet');
-    return res
-      .status(200)
-      .json({ message: 'recipe has been deleted', data: recipes });
+    return res.status(200).json({ data: recipes });
   } catch (error) {
     return res.status(500).json({
       error: 'could not get recipes  please try again later'

@@ -14,7 +14,9 @@ exports.up = function(knex) {
       .integer('user_id')
       .references('id')
       .inTable('users')
-      .notNullable();
+      .notNullable()
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE');
   });
 };
 
