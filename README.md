@@ -2,6 +2,8 @@
 
 ### PITCH
 
+[![Build Status](https://travis-ci.org/secret-family-recipe-s-cookbook/cookbook-backend-KO.svg?branch=master)](https://travis-ci.org/secret-family-recipe-s-cookbook/cookbook-backend-KO)
+
 Anyone can go out and buy a cookbook these days, but I want a place to store all my secret family recipes, handed down from generation to generation.
 
 API request url : https://lambda-cook-book.herokuapp.com/
